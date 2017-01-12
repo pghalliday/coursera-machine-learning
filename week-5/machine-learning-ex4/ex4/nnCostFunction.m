@@ -97,8 +97,10 @@ for t = 1:m
   Theta1_grad = Theta1_grad + d2t * Xt;
 end
 
-Theta1_grad = Theta1_grad / m;
-Theta2_grad = Theta2_grad / m;
+Theta1(:, 1) = 0;
+Theta1_grad = (Theta1_grad + lambda * Theta1) / m;
+Theta2(:, 1) = 0;
+Theta2_grad = (Theta2_grad + lambda * Theta2) / m;
 
 
 
